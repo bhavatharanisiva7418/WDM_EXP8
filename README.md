@@ -77,6 +77,23 @@ def get_snapdeal_products(search_query):
 
 search_query = input("Enter your search query: ")
 products_data = get_snapdeal_products(search_query)
+def visualize_product_data(products):
+    if products:
+        product_names = [product['Product'] for product in products]
+        product_prices = [product['Price'] for product in products]
+        plt.figure(figsize=(12, 8))
+        bars = plt.barh(product_names, product_prices, color='skyblue')  # Horizontal bar chart
+
+        plt.xlabel('Price in INR') 
+        plt.ylabel('Product') 
+        plt.title(f'Prices of Products on Snapdeal')
+        plt.tight_layout()
+
+        plt.show()
+    else:
+        print('No products to display.')
+visualize_product_data(products)
+
 
 ```
 
